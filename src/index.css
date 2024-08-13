@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-200
+  }
+
+  input {
+    @apply p-1 border rounded-md
+  }
+
+  img {
+    @apply border-2 border-black p-4
+  }
+}
+
+@layer components {
+  button {
+    @apply bg-blue-800 border text-white rounded-md shadow-sm mx-6 px-3 p-1 ml-2 hover:bg-orange-600
+  }
+}
+
+.photo {
+  @apply grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4
+}
+
+@media screen (sm) {
+  .img {
+    @apply mx-auto text-justify
+  }
+
+  button {
+    @apply mt-4
+  }
+}
+
