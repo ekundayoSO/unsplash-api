@@ -42,7 +42,7 @@ const ImageSearch = ({
         <button type="submit">Search</button>
       </form>
       <div>
-        <div className="photo">
+        <div className="photo text-center">
           {photos.map((photo) => {
             const imageStatus =
               imagesStatus.find((img) => img.id === photo.id)?.status || 0;
@@ -58,7 +58,7 @@ const ImageSearch = ({
                     borderRadius: "6px",
                   }}
                 />
-                <div className="flex justify-between mx-10">
+                <div className="icons">
                   <div className="flex items-center">
                     <AiOutlineDislike
                       color="red"
