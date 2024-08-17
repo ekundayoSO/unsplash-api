@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 
-const ImageSearch = () => {
+const ImageSearch = ({
+  imagesStatus,
+  handleLikes,
+  handleDislikes,
+  addImages,
+}) => {
   const [query, setQuery] = useState("");
   const [photos, setPhotos] = useState([]);
 
@@ -11,18 +16,14 @@ const ImageSearch = () => {
   const searchPhotos = async (e) => {
     e.preventDefault();
     const url = `https://api.unsplash.com/search/photos`;
-    const params = {
-      query: query,
-      //   per_page: 10,
-    };
-    const headers = {
-      Authorization: `Client-ID ${apiKey}`,
-    };
+    const params = { query: query };
+    const headers = { Authorization: `Client-ID ${apiKey}` };
 
     try {
       const response = await axios.get(url, { headers, params });
       const imageUrl = response.data.results;
       setPhotos(imageUrl);
+      addImages(imageUrl); // Initialize the imagesStatus state
     } catch (error) {
       console.error("Error fetching data from Unsplash API", error);
     }
@@ -38,17 +39,16 @@ const ImageSearch = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="" type="submit">
-          Search
-        </button>
+        <button type="submit">Search</button>
       </form>
-      <div className="border-2 border-blue-500 p-4">
+      <div>
         <div className="photo">
           {photos.map((photo) => {
+            const imageStatus =
+              imagesStatus.find((img) => img.id === photo.id)?.status || 0;
             return (
-              <div>
+              <div key={photo.id}>
                 <img
-                  key={photo.id}
                   src={photo.urls.small}
                   alt={photo.description}
                   style={{
@@ -59,9 +59,19 @@ const ImageSearch = () => {
                   }}
                 />
                 <div className="flex justify-between mx-10">
-                    <AiOutlineDislike color='red'/>
-                    0
-                    <AiOutlineLike color="blue"/>
+                  <div className="flex items-center">
+                    <AiOutlineDislike
+                      color="red"
+                      onClick={() => handleDislikes(photo.id)}
+                    />
+                  </div>
+                  <span>{imageStatus}</span>
+                  <div className="flex items-center">
+                    <AiOutlineLike
+                      color="blue"
+                      onClick={() => handleLikes(photo.id)}
+                    />
+                  </div>
                 </div>
               </div>
             );
