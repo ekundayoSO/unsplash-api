@@ -1,11 +1,11 @@
-# Display images from unsplash api
+# Fetching images from unsplash api and display in browser
 
 # Steps:
-- clone the repo and checkout to update
+- clone the repo && cd unsplash-api directory
 - run npm install
-- npm run dev
+- run npm run dev
 
-- Make your contribute your branch.
+- Make your contribute through your branch.
 
 
 Happy coding!!
