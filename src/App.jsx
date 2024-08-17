@@ -1,6 +1,9 @@
 import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useState } from "react";
 import ImageSearch from "./ImageSearch";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [imagesStatus, setImagesStatus] = useState([]);
@@ -31,12 +34,14 @@ function App() {
 
   return (
     <>
+      <Header />
       <ImageSearch
         imagesStatus={imagesStatus}
         handleLikes={handleLikes}
         handleDislikes={handleDislikes}
         addImages={addImages}
       />
+      <Footer />
     </>
   );
 }

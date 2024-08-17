@@ -31,7 +31,7 @@ const ImageSearch = ({
   };
 
   return (
-    <div>
+    <div className="mt-12">
       <form onSubmit={searchPhotos} className="mb-4">
         <input
           type="text"
