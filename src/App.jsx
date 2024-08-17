@@ -1,9 +1,10 @@
 import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useState } from "react";
-import ImageSearch from "./ImageSearch";
+import ImageSearch from "./components/ImageSearch";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ToggleButton from "./components/ToggleButton";
 
 function App() {
   const [imagesStatus, setImagesStatus] = useState([]);
@@ -41,6 +42,7 @@ function App() {
         handleDislikes={handleDislikes}
         addImages={addImages}
       />
+      <ToggleButton />
       <Footer />
     </>
   );
