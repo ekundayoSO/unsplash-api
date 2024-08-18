@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-white min-h-full pb-10 box-border dark:bg-black dark:text-white
+    @apply bg-white min-h-full text-slate-600 pb-10 box-border dark:bg-gray-900 dark:text-white
   }
 
   input {
