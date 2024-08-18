@@ -66,7 +66,7 @@ const ImageSearch = ({
                       onClick={() => handleDislikes(photo.id)}
                     />
                   </div>
-                  <span>{imageStatus}</span>
+                  <span className="text-xs">{imageStatus}</span>
                   <div className="flex items-center">
                     <AiOutlineLike
                       color="blue"
