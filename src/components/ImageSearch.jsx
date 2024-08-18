@@ -59,7 +59,7 @@ const ImageSearch = ({
                     borderRadius: "6px",
                   }}
                 />
-                <div className="icons">
+                <div className="icons mt-0.5">
                   <div className="flex items-center">
                     <AiOutlineDislike
                       color="red"
